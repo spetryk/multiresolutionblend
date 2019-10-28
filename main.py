@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import scipy
+import scipy.signal
 import cv2
-from align_image_code import align_images
+#from align_image_code import align_images
 from PIL import Image
 import sys
 
@@ -43,10 +44,10 @@ def hybrid(im1_name, im2_name, sig1, sig2):
 	im2 = plt.imread(im2_name)/255.
 
 	# Next align images (this code is provided, but may be improved)
-	im1_aligned, im2_aligned = align_images(im1, im2)
+	#im1_aligned, im2_aligned = align_images(im1, im2)
 
-	im1_aligned = rgb2gray(im1_aligned)
-	im2_aligned = rgb2gray(im2_aligned)
+	im1_aligned = rgb2gray(im1)
+	im2_aligned = rgb2gray(im2)
 
 	orig = scipy.ndimage.filters.gaussian_filter(im1, 1)
 	low_pass = scipy.ndimage.filters.gaussian_filter(im1, 5)
